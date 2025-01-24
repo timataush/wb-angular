@@ -18,9 +18,9 @@ import {RouterLink, RouterOutlet} from "@angular/router";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {}
 
   register() {
-  this.authService.logout()
+      this.authService.logout()
   }
 }

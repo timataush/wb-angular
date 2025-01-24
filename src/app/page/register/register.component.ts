@@ -16,6 +16,14 @@ export class RegisterComponent {
   user: Userdata = { email: '', password: '' };
   registerForm: FormGroup;
 
+  get email() {
+    return this.registerForm.get('email');
+  }
+
+  get password() {
+    return this.registerForm.get('password');
+  }
+
   constructor(private fb: FormBuilder, private authService: AuthService) {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -25,7 +33,7 @@ export class RegisterComponent {
 
   register(): void {
     if (this.registerForm.valid) {
-      this.user = this.registerForm.value;
+      this.user = this.registerForm.getRawValue();
       this.authService
         .register(this.user)
         .then(() => console.log('User registered successfully!'))

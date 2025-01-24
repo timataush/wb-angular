@@ -14,11 +14,13 @@
         <div class="footer__sellers">
           <div class="footer__title">Продавцам и партнёрам</div>
           <ul class="footer__dropdown">
-            <li class="footer__dropdown-item" datatype="sell-goods">Продавать товары</li>
-            <li class="footer__dropdown-item" datatype="open-point">Открыть пункт выдачи</li>
-            <li class="footer__dropdown-item" datatype="offer-room">Предложить помещение</li>
-            <li class="footer__dropdown-item" datatype="oeliver-goods">Развозить грузы</li>
-            <li class="footer__dropdown-item" datatype="oeliver-orders">Доставлять заказы</li>
+            <li
+              *ngFor="let item of footerItems"
+              class="footer__dropdown-item"
+              [ngClass]="{'timoha': item.type === 'test', 'gnom': item.type === 'gnom'}"
+            >
+              {{item.name}}
+            </li>
           </ul>
         </div>
 
@@ -59,24 +61,10 @@
       <div class="footer__info-side">
         <span class ="footer__info-text">© Wildberries 2004–2025. Все права защищен</span>
         <div class="footer__social">
-          <div class="footer__social-icon">
-            <a href="https://vk.com/wildberries_shop">
-              <img class="footer__social-icon-all" src="assets/images/icons8-vk.svg">
-            </a>
-          </div>
-          <div class="footer__social-icon">
-            <a  href="https://ok.ru/wildberriesby">
-              <img class="footer__social-icon-all" src="assets/images/odnoklassniki_icon_231925.png">
-            </a>
-          </div>
-          <div class="footer__social-icon">
-            <a href="https://www.wildberries.by/presservice#tg">
-              <img class="footer__social-icon-all" src="assets/images/logo-tg.png">
-            </a>
-          </div>
-          <div class="footer__social-icon">
-            <a href="https://www.youtube.com/@wb_online/featured">
-              <img class="footer__social-icon-all" src="assets/images/youtube-logo.png">
+
+          <div class="footer__social-icon" *ngFor="let social of socials">
+            <a href='{{social.link}}'>
+              <img class="footer__social-icon-all" src='{{social.icons}}' alt='{{social.icons}}'>
             </a>
           </div>
         </div>
