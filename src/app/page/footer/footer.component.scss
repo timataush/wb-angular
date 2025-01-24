@@ -1,0 +1,158 @@
+//footer
+.footer {
+  flex: none;
+  padding: 40px 0 72px;
+  color: #242424;
+  position: relative;
+  background-color: rgba(211, 212, 221, .24);
+  &__container{
+    //padding: 0 16px;
+    max-width: 1504px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  &__nav{
+    margin: 0 0 20px;
+    display: flex;
+    margin: 0 0 20px;
+  }
+  &__services{
+    justify-content: space-between;
+    width: calc(100% - 16px);
+    display: flex;
+    position: relative;
+  }
+
+
+
+
+  &__buyers{
+    padding: 0;
+    width: calc(29% - 16px);
+    border-bottom: 1px solid rgba(211, 212, 221, .5);
+    border: none;
+  }
+  //нужно сделать шрифт
+  &__title{
+    cursor: default ;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    margin-bottom: 10px;
+
+    font-variation-settings: "wght" 450;
+    color: #030303;
+    text-rendering: geometricPrecision;
+    font-family: Hauss, Segoe UI, -apple-system, Roboto, Helvetica Neue, Noto Sans, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  &__dropdown{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: #868695;
+
+
+
+    &-item{
+      cursor: grab;
+      margin: 0 0 8px;
+      display: list-item;
+      text-align: -webkit-match-parent;
+      unicode-bidi: isolate;
+      list-style: none;
+      &:hover {
+        color: #af1ad0;
+
+      }
+    }
+  }
+
+  &__sellers {
+    padding: 0;
+    border-top: 1px solid rgba(211, 212, 221, .5);
+    width: calc(26% - 16px);
+    margin: 0 8px;
+    border: none;
+
+  }
+  &__ourproject{
+    padding: 0;
+    position: relative;
+    width: 15%;
+    border-bottom: none;
+    border: none;
+
+  }
+  &__company{
+    padding: 0;
+    border-top: 1px solid rgba(211, 212, 221, .5);
+    width: calc(26% - 16px);
+    position: relative;
+    border-bottom: none;
+    margin: 0 8px;
+    border: none;
+
+  }
+  &__qr{
+    flex-shrink: 0;
+    &-container{
+      width: calc(100% - 16px);
+      margin: 0 8px;
+    }
+  }
+
+
+  &__info{
+    border-top: 1px solid rgba(255, 255, 255, .2);
+    justify-content: space-between;
+    margin-top: -10px;
+    padding-top: 40px;
+    display: flex;
+    &-main{
+      width: 815px;
+      font-size: 14px;
+      line-height: 20px;
+      color: #868695;
+    }
+    &-side{
+      width: 432px;
+      margin-left: 40px;
+      color: #868695;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    &__text{
+      color: #868695;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+  &__social{
+    gap: 8px;
+    display: flex;
+    margin-top: 12px;
+
+    &-icon-all{
+      width: 32px;
+      height: 32px;
+      -webkit-transition: -webkit-transform .8s ease-in-out;
+      transition:  transform .8s ease-in-out;
+      &:hover {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+  }
+
+}
+.datatype{
+  &:hover {
+    color: #af1ad0;
+
+  }
+}

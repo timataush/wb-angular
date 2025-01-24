@@ -1,0 +1,17 @@
+
+//main
+.main {
+  display: grid;
+  height: 100vh;
+  &__content{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 8px;
+    height: 100%;
+    margin:140px 16px 0 16px;
+    position: relative;
+    border-radius: 10%;
+  }
+  // background: red
+  // position: fixed
+}
