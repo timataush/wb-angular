@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { AuthService } from "../../services/auth.service";
 import { Userdata } from "../../models/userdata";
-import {RouterLink, RouterOutlet} from "@angular/router";
+import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgClass, NgIf} from "@angular/common";
 import {HeaderComponent} from "../header/header.component";
+import {AuthError} from "@angular/fire/auth";
+
 
 @Component({
   selector: 'app-login',
@@ -17,6 +19,7 @@ import {HeaderComponent} from "../header/header.component";
     RouterOutlet,
     HeaderComponent
   ],
+
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -26,20 +29,43 @@ export class LoginComponent {
     password: ''
   };
 
+  errorMessage = '';
+
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  get email(){
+    return this.loginForm.get('email');
+  }
+
+  get password(){
+    return this.loginForm.get('password');
+  }
+
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
+
   login(): void {
     if (this.loginForm.valid) {
-
       this.user = this.loginForm.value;
-      this.authService.login(this.user);
+
+      this.authService.login(this.user)
+        .then((data) => {
+          this.router.navigate(['main']);
+        })
+        .catch(err=> {
+          this.errorMessage = err
+          console.log(this.errorMessage);
+        })
+
     } else {
       this.loginForm.markAllAsTouched();
     }

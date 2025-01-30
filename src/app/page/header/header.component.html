@@ -17,11 +17,9 @@
     <div class="header__container">
       <img class="header__logo-image" src="/assets/images/wb-logo.png" alt="Логотип" >
 
-      <button class="header__button-navigate">
-        <div class="btn__ham">
-          <div></div>
-        </div>
-      </button>
+<!--      <div class="header__button-navigate">-->
+        <img class="header__logo-menu" src="/assets/images/menu_icon-icons.com_69502.svg" alt="Логотип" >
+<!--      </div>-->
 
       <form action="#" class="header__search">
         <div class="header__search-container">
@@ -32,15 +30,15 @@
         </div>
       </form>
       <div class="header__menu">
-      <a href="#" class="header__geo">
+      <a  class="header__geo">
         <img src="../../../assets/images/geo.png" alt="Logo: geo" class="header__icon-menu">
         <span class="header__address-name">Адреса</span>
       </a>
-      <a href="#" class="header__login">
+      <a [routerLink]="['/login']" class="header__login">
         <img src="../../../assets/images/login.png" [routerLink]="['/login']" alt="Logo: login" class="header__icon-menu" >
         <span class="header__address-name">Войти</span>
       </a>
-      <a href="#" class="header__basket">
+      <a  class="header__basket">
         <img src="../../../assets/images/basket.png" alt="Logo: basket" class="header__icon-menu">
         <span class="header__address-name">Корзина</span>
       </a>

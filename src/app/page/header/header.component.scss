@@ -47,6 +47,14 @@ $border-radius: 5px;
       position: absolute;
       left: 15px;
     }
+    &-menu {
+      width: 5%;
+      height: auto;
+      //border-radius: 50%;
+      //position: absolute;
+      //left: 100px;
+      margin-left: 100px;
+    }
 
     &-text {
       font-size: 1rem;
@@ -55,23 +63,23 @@ $border-radius: 5px;
       margin-top: 10px;
     }
   }
-  &__button-navigate {
+  //&__button-navigate {
     //display: block;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    background: 0 0;
-    border: 1px solid rgba(255, 255, 255, .4);
-    border-radius: 16px;
-    justify-content: center;
-    align-items: center;
-    width: 58px;
-    height: 58px;
-    transition: border-color .3s;
-    display: flex;
-    margin-left: 200px;
-  ;
+    //background: none;
+    //border: none;
+    //cursor: pointer;
+    //padding: 10px;
+    //background: 0 0;
+    //border: 1px solid rgba(255, 255, 255, .4);
+    //border-radius: 16px;
+    //justify-content: center;
+    //align-items: center;
+    //width: 58px;
+    //height: 58px;
+    //transition: border-color .3s;
+    //display: flex;
+    //margin-left: 200px;
+
 
     .btn__ham {
       display: flex;
@@ -84,7 +92,7 @@ $border-radius: 5px;
         background-color: $secondary-color;
         border-radius: 2px;
       }
-    }
+    //}
   }
   &__menu{
     display: flex;
@@ -96,8 +104,7 @@ $border-radius: 5px;
   &__search {
     display: flex;
     position: relative;
-    max-width: 500px;
-    margin: 0 20px;
+    flex-grow: 0.5;
   }
 
   .header__search-container {
@@ -132,6 +139,13 @@ $border-radius: 5px;
     font-size: 1rem;
     background-color: $input-bg-color;
     outline: none;
+    //text-align: center;
+    color: #242424;
+    -webkit-appearance: none;
+    text-overflow: ellipsis;
+    background: #fff;
+    font-size: 16px;
+    overflow: hidden;
 
 
     &::placeholder {
@@ -152,6 +166,8 @@ $border-radius: 5px;
     font-size: 24px;
     font-weight: 700;
     flex-direction: column;
+    cursor:pointer;
+
 
     &:hover {
       color: $hover-color;
@@ -160,10 +176,13 @@ $border-radius: 5px;
     & .header__icon-menu {
       height: $icon-size;
       width: $icon-size;
+      cursor:pointer;
+
     }
 
     & .header__address-name {
       font-size: 1rem;
+      cursor:pointer;
 
     }
 

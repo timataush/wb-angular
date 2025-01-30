@@ -19,6 +19,10 @@ import { NgIf, NgClass } from '@angular/common';
 export class ForgotPasswordComponent {
   forgotForm: FormGroup;
 
+  get email(){
+    return this.forgotForm.get('email');
+  }
+
   constructor(private fb: FormBuilder, private authService: AuthService) {
     this.forgotForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]]
@@ -33,10 +37,6 @@ export class ForgotPasswordComponent {
         .then(() => {
           alert(`Password reset email has been sent to ${email}. Please check your inbox.`);
         })
-        .catch(err => {
-          console.error('Error sending password reset email:', err);
-          alert('Failed to send reset email. Please try again later.');
-        });
     } else {
       alert('Please enter a valid email address.');
     }

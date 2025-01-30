@@ -12,9 +12,9 @@
                 class="form-control"
                 id="email"
                 formControlName="email"
-                [ngClass]="{ 'is-invalid': registerForm.get('email')?.invalid && registerForm.get('email')?.touched }"
+                [ngClass]="{ 'is-invalid': email?.invalid && email?.touched }"
               />
-              <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="invalid-feedback">
+              <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback">
                 Please enter a valid email.
               </div>
             </div>
@@ -26,9 +26,9 @@
                 class="form-control"
                 id="password"
                 formControlName="password"
-                [ngClass]="{ 'is-invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.touched }"
+                [ngClass]="{ 'is-invalid': password?.invalid && password?.touched }"
               />
-              <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="invalid-feedback">
+              <div *ngIf="password?.invalid && password?.touched" class="invalid-feedback">
                 Password must be at least 6 characters.
               </div>
             </div>

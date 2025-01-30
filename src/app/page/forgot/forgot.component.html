@@ -13,15 +13,15 @@
                 id="email"
                 formControlName="email"
                 [ngClass]="{
-                  'is-invalid': forgotForm.get('email')?.invalid && forgotForm.get('email')?.touched
+                  'is-invalid': email?.invalid && email?.touched
                 }"
               />
               <div
-                *ngIf="forgotForm.get('email')?.invalid && forgotForm.get('email')?.touched"
+                *ngIf="email?.invalid && email?.touched"
                 class="invalid-feedback"
               >
-                <small *ngIf="forgotForm.get('email')?.errors?.['required']">Email is required.</small>
-                <small *ngIf="forgotForm.get('email')?.errors?.['email']">Please enter a valid email address.</small>
+                <small *ngIf="email?.errors?.['required']">Email is required.</small>
+                <small *ngIf="email?.errors?.['email']">Please enter a valid email address.</small>
               </div>
             </div>
 
