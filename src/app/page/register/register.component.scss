@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.mb-3{
+  //padding-bottom: 10px ;
+  width: 334px;
+  height: 73px;
+}
 
 .container {
   min-height: 100vh;
@@ -20,6 +25,8 @@
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid #af1ad0;
+  height: 370px;
+  width: 400px;
 
 
   .card-header {
@@ -95,12 +102,12 @@
   border-top: 4px solid #af1ad0;
 }
 .invalid-feedback{
-  margin-bottom: 10px;
+  //margin-bottom: 10px;
+  font-size: 13px;
+  color: #dc3545;
 }
 .is-invalid {
   border-color: #dc3545;
 }
 
-.invalid-feedback {
-  color: #dc3545;
-}
+

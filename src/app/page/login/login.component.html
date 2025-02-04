@@ -36,7 +36,7 @@
                   Password must be at least 6 characters.
                 </small>
               </div>
-              <div *ngIf="errorMessage" style="color: red">
+              <div class="invalid-feedback" *ngIf="errorMessage" style="font-size: 13px;color: red">
                 {{errorMessage}}
               </div>
             </div>
