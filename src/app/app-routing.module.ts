@@ -16,6 +16,7 @@ export const routes : Routes = [
   {path:'forgot', component : ForgotPasswordComponent},
   {path:'footer', component : FooterComponent},
   {path:'main', component : MainComponent},
+
 ]
 
 @NgModule ({

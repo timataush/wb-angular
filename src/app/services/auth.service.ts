@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, UserCredential, AuthError } from "@angular/fire/auth";
+import { Auth,User,onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, UserCredential, AuthError } from "@angular/fire/auth";
 import { Router } from "@angular/router";
 import { Userdata } from "../models/userdata";
 
@@ -8,7 +8,26 @@ import { Userdata } from "../models/userdata";
 })
 export class AuthService {
 
-  constructor(private auth: Auth, private router: Router) {}
+
+  user: User | null = null;
+
+
+
+  constructor(private auth: Auth, private router: Router) {
+    onAuthStateChanged(this.auth, (user)=> {
+      this.user = user;
+      if(user){
+        localStorage.setItem('token', 'true');
+      }
+      else{
+        localStorage.removeItem('token');
+      }
+    });
+  }
+
+  isAuthenticated(): boolean {
+    return this.user === null || this.user === null;
+  }
 
 
   login(Userdata: Userdata): Promise<UserCredential> {

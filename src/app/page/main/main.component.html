@@ -1,6 +1,6 @@
 
 <section class ="main">
-<!--  <div class="main__content">-->
+  <div class="main__content">
 <!--    <div class="preloader">-->
 <!--      <div class="loader"></div>-->
 <!--    </div>-->
@@ -15,6 +15,11 @@
 <!--      <button class="btnpg main__next"><img  src="img/right.png" alt="right"></button>-->
 
 <!--    </div>-->
+    <div class="container">
+      <h1>Добро пожаловать!</h1>
+      <p *ngIf="authService.user">Вы вошли как: {{ authService.user.email }}</p>
+      <button (click)="logout()">Выйти</button>
+    </div>
+  </div>
 
-<!--  </div>-->
 </section>
