@@ -15,36 +15,226 @@
 <div class="wrapper">
   <header class="header">
     <div class="header__container">
-      <img class="header__logo-image" src="/assets/images/wb-logo.png" alt="Логотип" >
+
+      <div class="header__href">
+
+    <ul class="header__simple-menu">
+      <div class="header__menu-setting">
+      <li class="simple-menu__item simple-menu__item--geo">
+        <span class="simple-menu__icon simple-menu__icon--geo"></span>
+        <span class="simple-menu__link">Минск</span>
+      </li>
+      </div>
+      <li class="simple-menu__item">
+        <a href="https://seller.wildberries.ru/" class="simple-menu__link" target="_blank">
+          <span class="simple-menu__text simple-menu__text--full">Продавайте на WB</span>
+          <span class="simple-menu__text simple-menu__text--short">Продавайте на WB</span>
+        </a>
+      </li>
+      <li class="simple-menu__item">
+        <a href="https://career.wb.ru" class="simple-menu__link" target="_blank">
+          <span class="simple-menu__text simple-menu__text--full">Работа в WB</span>
+          <span class="simple-menu__text simple-menu__text--short">Работа в WB</span>
+        </a>
+      </li>
+    </ul>
+
+
+
+
+    <div class="header__wrap">
+      <div class="header__balance-block">
+        <div class="header__cashback header__cashback--disabled"></div>
+        <a href="/lk/mywallet/purchases" class="header__balance">0,00&nbsp;р.</a>
+      </div>
+
+      <div class="header__currency simple-menu__item">
+    <span class="simple-menu__link simple-menu__link--country">
+      <span class="simple-menu__flag flag-by"></span>
+      <span class="simple-menu__currency">BYN</span>
+    </span>
+
+        <div class="simple-menu__tooltip tooltip-simple tooltip-country">
+          <div class="tooltip__content">
+            <div class="tooltip__country">
+            <h2 class="tooltip__header">Валюта</h2>
+            <div class="currency">
+              <div class="currency__wrap">
+                <label class="currency__item currency__item--active">
+                  <input type="radio" name="currency" value="BYN" checked>
+                  <span class="currency__flag flag-by"></span>
+                  <span class="currency__name">Белорусский рубль (BYN)</span>
+                </label>
+
+                <label class="currency__item">
+                  <input type="radio" name="currency" value="RUB">
+                  <span class="currency__flag flag-ru"></span>
+                  <span class="currency__name">Российский рубль (RUB)</span>
+                </label>
+
+                <label class="currency__item">
+                  <input type="radio" name="currency" value="KZT">
+                  <span class="currency__flag flag-kz"></span>
+                  <span class="currency__name">Казахстанский тенге (KZT)</span>
+                </label>
+
+                <label class="currency__item">
+                  <input type="radio" name="currency" value="AMD">
+                  <span class="currency__flag flag-am"></span>
+                  <span class="currency__name">Армянский драм (AMD)</span>
+                </label>
+
+                <label class="currency__item">
+                  <input type="radio" name="currency" value="KGS">
+                  <span class="currency__flag flag-kg"></span>
+                  <span class="currency__name">Кыргызский сом (KGS)</span>
+                </label>
+
+                <label class="currency__item">
+                  <input type="radio" name="currency" value="UZS">
+                  <span class="currency__flag flag-uz"></span>
+                  <span class="currency__name">Узбекский сум (UZS)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+    <div class="header__bottom">
+
+      <div class="header__nav-element">
+      <img class="header__logo-image" src="https://static-basket-01.wbbasket.ru/vol2/site/i/v3/header/logoWb.svg" alt="Логотип" >
 
 <!--      <div class="header__button-navigate">-->
         <img class="header__logo-menu" src="/assets/images/menu_icon-icons.com_69502.svg" alt="Логотип" >
+      </div>
+
+<!--      <div class="header__menu-left">-->
+<!--        <div class="menu">-->
+<!--         <a href="#" class="menu-btn"></a>-->
+<!--          <nav class="menu-list">-->
+<!--            <a href="#">Главная</a>-->
+<!--            <a href="#">Новости</a>-->
+<!--            <a href="#">Контакты</a>-->
+<!--            <a href="#">Портфолио</a>-->
+<!--          </nav>-->
+<!--        </div>-->
+<!--        <div class="content">-->
+<!--        </div>-->
+
+
 <!--      </div>-->
 
       <form action="#" class="header__search">
         <div class="header__search-container">
-          <button type="button" class="header__search-button">
-            <img src="../../../assets/images/search.svg" alt="Icon: search">
-          </button>
+            <label class="header__search-button"></label>
           <input type="text" class="header__input" placeholder="Search product">
         </div>
       </form>
       <div class="header__menu">
+
+        <a  class="header__delivery">
+          <img src="../../../assets/images/delivery.png" alt="Logo: delivery" class="header__icon-menu">
+          <span class="header__address-name">Доставки</span>
+        </a>
+
       <a  class="header__geo">
         <img src="../../../assets/images/geo.png" alt="Logo: geo" class="header__icon-menu">
         <span class="header__address-name">Адреса</span>
       </a>
-      <a [routerLink]="['/login']" class="header__login">
-        <img src="../../../assets/images/login.png" [routerLink]="['/login']" alt="Logo: login" class="header__icon-menu" >
+
+
+        <div class="header__dropdown">
+      <a [routerLink]="['/login']"  class="header__login">
+        <img src="../../../assets/images/login.png" [routerLink]="['/login']" alt="Logo: login" class="header__icon-menu">
         <span class="header__address-name">Войти</span>
       </a>
+
+        <div class="header__dropdown-content" >
+
+          <div class="header__log">
+            <a class="header__dropdown-login" href="#">
+              <img class="man header__dropdown-icon" src="/assets/images/man.png">
+              <span class="header__dropdown-log">Имя не указано ></span>
+              <img class="header__dropdown-bell" src="/assets/images/bell.png">
+            </a>
+          </div>
+          <hr>
+          <div class="header__dropdown-main">
+            <a class="header__dropdown-item" href="#">
+              <img class="header__dropdown-icon" src="/assets/images/shop.png">
+              <span class="header__dropdown-name"> Покупки</span>
+            </a>
+            <a class="header__dropdown-item" href="#">
+              <img class="header__dropdown-icon" src="/assets/images/favorite.png">
+              <span class="header__dropdown-name"> Избранные</span>
+            </a>
+            <a class="header__dropdown-item" href="#">
+              <img class="header__dropdown-icon" src="/assets/images/box.png">
+              <span class="header__dropdown-name">Доставки</span>
+            </a>
+            <a class="header__dropdown-item" href="#">
+              <img class="header__dropdown-icon" src="/assets/images/wallet.png">
+              <span class="header__dropdown-name"> Баланс</span>
+              <div class="header__dropdown-balance">0,00$</div>
+            </a>
+            <a class="header__dropdown-item" href="#">
+              <img class="header__dropdown-icon" src="/assets/images/card.png">
+              <span class="header__dropdown-name"> Способы оплаты</span>
+            </a>
+          </div>
+
+
+          <hr>
+
+
+          <div class="header__dropdown-contact">
+            <a class="header__dropdown-cont" href="#">
+              <!--            <img class="header__dropdown-icon" src="/assets/images/shop.png">-->
+              <span class="header__contact">Обращения </span>
+            </a>
+            <a class="header__dropdown-cont" href="#">
+              <!--            <img class="header__dropdown-icon" src="/assets/images/shop.png">-->
+              <span class="header__contact">Отзывы и вопросы</span>
+            </a>
+          </div>
+
+
+          <hr>
+
+         <div class="header__dropdown-out">
+           <a (click)="logout()" class="header__dropdown-item" href="#">
+             <img class="header__dropdown-icon" src="/assets/images/logout.png">
+             <span class="header__logout">Выйти</span>
+           </a>
+         </div>
+        </div>
+        </div>
+
+
+
+
+
+
       <a  class="header__basket">
         <img src="../../../assets/images/basket.png" alt="Logo: basket" class="header__icon-menu">
         <span class="header__address-name">Корзина</span>
       </a>
       </div>
     </div>
+    </div>
   </header>
 
 
 </div>
+
+
+

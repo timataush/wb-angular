@@ -1,25 +1,122 @@
 
 <section class ="main">
-  <div class="main__content">
-<!--    <div class="preloader">-->
-<!--      <div class="loader"></div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="main__pagination">-->
-<!--    <div class="main__btnpg">-->
-<!--      <button class="btnpg main__prev"><img  src="img/left.png" alt="left"></button>-->
-<!--      <ul class="main__ul">-->
-<!--         <li class = "main__items" data-value="1">1</li>-->
 
-<!--      </ul>-->
-<!--      <button class="btnpg main__next"><img  src="img/right.png" alt="right"></button>-->
 
-<!--    </div>-->
-    <div class="container">
-      <h1>Добро пожаловать!</h1>
-      <p *ngIf="authService.user">Вы вошли как: {{ authService.user.email }}</p>
-      <button (click)="logout()">Выйти</button>
-    </div>
+
+
+  <ul class="breadcrumbs">
+    <!-- Главная -->
+    <li class="breadcrumbs__item breadcrumbs__item--active">
+      <a href="/lk" class="breadcrumbs__link" data-alt-routes="/lk/details" data-main="true" data-lk-header-st-name="Main">Главная</a>
+    </li>
+
+    <!-- Доставки -->
+    <li class="breadcrumbs__item" data-attr="9">
+      <a href="/lk/myorders/delivery" class="breadcrumbs__link" data-main="true" data-lk-header-wba="LK_DLV" data-lk-header-st-name="Delivery">Доставки</a>
+    </li>
+
+    <!-- Покупки с подменю -->
+    <li class="breadcrumbs__item breadcrumbs__item--has-submenu" data-attr="2">
+      <a href="/lk/myorders/archive" class="breadcrumbs__link" data-main="true" data-lk-header-wba="LK_Header_Purchases" data-lk-header-st-name="Purchases">Покупки</a>
+      <div class="breadcrumbs__submenu">
+        <ul class="breadcrumbs__sublist">
+          <li class="breadcrumbs__subitem">
+            <a href="/lk/myorders/archive" class="breadcrumbs__sublink" data-main="false" data-lk-header-wba="LK_Purchases">Покупки</a>
+          </li>
+          <li class="breadcrumbs__subitem" data-switch="customerReceipt">
+            <a href="/lk/receipts/get" class="breadcrumbs__sublink" data-main="false" data-lk-header-wba="LK_eCheck">Чеки</a>
+          </li>
+          <li class="breadcrumbs__subitem" data-switch="enableRefund" data-alt-switch="enableClaims">
+            <a href="/lk/myrefunds" class="breadcrumbs__sublink" data-alt-routes="/lk/myrefunds, /lk/claims" data-main="false" data-lk-header-wba="LK_RefundRegistration">Возвраты</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!-- Избранное с подменю -->
+    <li class="breadcrumbs__item breadcrumbs__item--has-submenu" data-attr="1">
+      <a href="/lk/favorites" class="breadcrumbs__link" data-main="true" data-lk-header-wba="LK_Header_Favorites" data-lk-header-st-name="Favorites">Избранное</a>
+      <div class="breadcrumbs__submenu">
+        <ul class="breadcrumbs__sublist">
+          <li class="breadcrumbs__subitem">
+            <a href="/lk/favorites" class="breadcrumbs__sublink" data-main="false" data-lk-header-wba="LK_Favorites">Избранное</a>
+          </li>
+          <li class="breadcrumbs__subitem">
+            <a href="/lk/favoritebrands" class="breadcrumbs__sublink" data-main="false" data-lk-header-wba="Favourite_Brand">Любимые бренды</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!-- Баланс -->
+    <li class="breadcrumbs__item" data-attr="6" data-switch="showWallet">
+      <a href="/lk/mywallet/purchases" class="breadcrumbs__link" data-main="true">Баланс</a>
+    </li>
+
+    <!-- Отзывы и вопросы с подменю -->
+    <li class="breadcrumbs__item breadcrumbs__item--has-submenu" data-attr="4">
+      <a href="/lk/discussion/feedback" class="breadcrumbs__link" data-main="true" data-lk-header-wba="LK_Header_Feedback" data-lk-header-st-name="Reviews">Отзывы и вопросы</a>
+      <div class="breadcrumbs__submenu">
+        <ul class="breadcrumbs__sublist">
+          <li class="breadcrumbs__subitem">
+            <a href="/lk/discussion/feedback?type=waiting_feedbacks" class="breadcrumbs__sublink" data-main="false" data-lk-header-wba="LK_ItemQuestions">Ждут отзыва</a>
+          </li>
+          <li class="breadcrumbs__subitem">
+            <a href="/lk/discussion/feedback?type=comments" class="breadcrumbs__sublink" data-main="false" data-lk-header-wba="LK_Feedback">Отзывы</a>
+          </li>
+          <li class="breadcrumbs__subitem">
+            <a href="/lk/discussion/feedback?type=questions" class="breadcrumbs__sublink" data-main="false" data-lk-header-wba="LK_ItemQuestions">Вопросы</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!-- Обращения -->
+    <li class="breadcrumbs__item" data-attr="3">
+      <a href="/lk/communications" class="breadcrumbs__link" data-main="true" data-lk-header-wba="LK_Header_Requests" data-lk-header-st-name="Applications">Обращения</a>
+    </li>
+
+    <!-- Ещё разделы с подменю -->
+    <li class="breadcrumbs__item breadcrumbs__item--has-submenu" data-attr="7">
+      <a href="javascript:void(0);" class="breadcrumbs__link" data-main="true" data-lk-header-st-name="Other">Ещё разделы</a>
+      <div class="breadcrumbs__submenu">
+        <ul class="breadcrumbs__sublist">
+          <li class="breadcrumbs__subitem">
+            <a href="https://digital.wildberries.ru/" class="breadcrumbs__sublink" data-main="false">WB Цифровой</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+
+
+
+
+
+<div class="main__section">
+    <div class="main__content">
+
+
+  <!--    <div class="preloader">-->
+  <!--      <div class="loader"></div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--  <div class="main__pagination">-->
+  <!--    <div class="main__btnpg">-->
+  <!--      <button class="btnpg main__prev"><img  src="img/left.png" alt="left"></button>-->
+  <!--      <ul class="main__ul">-->
+  <!--         <li class = "main__items" data-value="1">1</li>-->
+
+  <!--      </ul>-->
+  <!--      <button class="btnpg main__next"><img  src="img/right.png" alt="right"></button>-->
+
+  <!--    </div>-->
+  <div class="container">
+    <h1>Добро пожаловать!</h1>
+    <p *ngIf="authService.user">Вы вошли как: {{ authService.user.email }}</p>
+<!--    <button (click)="logout()">Выйти</button>-->
   </div>
+    </div>
 
+</div>
 </section>

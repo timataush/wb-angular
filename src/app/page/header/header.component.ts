@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
-import {NgOptimizedImage} from "@angular/common";
+import {NgIf, NgOptimizedImage} from "@angular/common";
 import {RouterLink, RouterOutlet} from "@angular/router";
 
 @Component({
@@ -12,15 +12,42 @@ import {RouterLink, RouterOutlet} from "@angular/router";
     ReactiveFormsModule,
     NgOptimizedImage,
     RouterLink,
-    RouterOutlet
+    RouterOutlet,
+    NgIf
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+
+  // isSubmenuVisible: boolean[] = [false, false]; // Массив для управления видимостью подменю
+  //
+  // showSubmenu(index: number): void {
+  //   this.isSubmenuVisible[index] = true;
+  // }
+  //
+  // hideSubmenu(index: number): void {
+  //   this.isSubmenuVisible[index] = false;
+  // }
+
+
 constructor(private authService: AuthService) {}
 
-  register() {
+  //
+  // isDropdownVisible: boolean = false;
+  //
+  // showDropdown(): void {
+  //   this.isDropdownVisible = true;
+  // }
+  //
+  // hideDropdown(): void {
+  //   this.isDropdownVisible = false;
+  // }
+
+
+
+
+  logout() {
   this.authService.logout()
   }
 }

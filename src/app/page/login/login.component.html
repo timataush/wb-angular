@@ -1,59 +1,55 @@
 <!--<app-header></app-header>-->
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-5">
-      <div class="card">
-        <div class="card-header">Login</div>
-        <div class="card-body">
+<div class="login">
+      <div class="login__container">
+        <div class="login-header">Login</div>
+        <div class="login-body">
           <form [formGroup]="loginForm" (ngSubmit)="login()">
-            <div class="mb-3">
-              <label for="email" class="form-label">Email log </label>
+            <div class="login__form">
+              <label for="email" class="login__form-label">Email log </label>
               <input
                 type="email"
-                class="form-control"
+                class="login__form-control"
                 id="email"
                 formControlName="email"
                 [ngClass]="{'is-invalid': email?.invalid && email?.touched}"
               />
-              <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback">
+              <div *ngIf="email?.invalid && email?.touched" class="login__invalid-feedback">
                 <small *ngIf="email?.errors?.['required']">Email is required.</small>
                 <small *ngIf="email?.errors?.['email']">Please enter a valid email address.</small>
               </div>
             </div>
 
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
+            <div class="login__form">
+              <label for="password" class="login__form-label">Password</label>
               <input
                 type="password"
-                class="form-control"
+                class="login__form-control"
                 id="password"
                 formControlName="password"
                 [ngClass]="{'is-invalid': password?.invalid && password?.touched}"
               />
-              <div *ngIf="password?.invalid && password?.touched" class="invalid-feedback">
+              <div *ngIf="password?.invalid && password?.touched" class="login__invalid-feedback">
                 <small *ngIf="password?.errors?.['required']">Password is required.</small>
                 <small *ngIf="password?.errors?.['minlength']">
                   Password must be at least 6 characters.
                 </small>
               </div>
-              <div class="invalid-feedback" *ngIf="errorMessage" style="font-size: 13px;color: red">
+              <div class="login__invalid-feedback" *ngIf="errorMessage" style="font-size: 13px;color: red">
                 {{errorMessage}}
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+            <button type="submit" class="login__btn-primary" [disabled]="loginForm.invalid">Login</button>
 
             <div class="row mt-3">
               <div class="mt-3">
-                <p href="" style="text-decoration: none;">Need Account? <span class="col-md-6" [routerLink]="['/register']">Registration</span></p>
+                <p href="" style="text-decoration: none;">Need Account? <span class="login__href" [routerLink]="['/register']">Registration</span></p>
               </div>
-              <div class="col-md-6">
+              <div class="login__href">
                 <p [routerLink]="['/forgot']" style="text-decoration: none;">Forgot password?</p>
               </div>
             </div>
           </form>
         </div>
       </div>
-    </div>
-  </div>
 </div>

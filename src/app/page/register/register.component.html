@@ -1,45 +1,41 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-5">
-      <div class="card">
-        <div class="card-header">Register</div>
-        <div class="card-body">
+<div class="register">
+      <div class="register__container">
+        <div class="register__header">Register</div>
+        <div class="register__body">
           <form [formGroup]="registerForm" (ngSubmit)="register()">
-            <div class="mb-3">
-              <label for="email" class="form-label">Email log </label>
+            <div class="register__form">
+              <label for="email" class="register__form-label">Email log </label>
               <input
                 type="email"
-                class="form-control"
+                class="register__form-control"
                 id="email"
                 formControlName="email"
                 [ngClass]="{ 'is-invalid': email?.invalid && email?.touched }"
               />
-              <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback">
+              <div *ngIf="email?.invalid && email?.touched" class="register__invalid-feedback">
                 Please enter a valid email.
               </div>
             </div>
 
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
+            <div class="register__form">
+              <label for="password" class="register__form-label">Password</label>
               <input
                 type="password"
-                class="form-control"
+                class="register__form-control"
                 id="password"
                 formControlName="password"
                 [ngClass]="{ 'is-invalid': password?.invalid && password?.touched }"
               />
-              <div *ngIf="password?.invalid && password?.touched" class="invalid-feedback">
+              <div *ngIf="password?.invalid && password?.touched" class="register__invalid-feedback">
                 Password must be at least 6 characters.
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Register</button>
-            <p class="mt-3" >
-              Already have an account? <span class="col-md-6" [routerLink]="['/login']">Login</span>
+            <button type="submit" class="register__btn-primary">Register</button>
+            <p class="register__log" >
+              Already have an account? <span class="register__login" [routerLink]="['/login']">Login</span>
             </p>
           </form>
         </div>
       </div>
-    </div>
-  </div>
 </div>
