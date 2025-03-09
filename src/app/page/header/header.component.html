@@ -19,11 +19,13 @@
       <div class="header__href">
 
     <ul class="header__simple-menu">
+      <div class="header__menu-setting2">
       <div class="header__menu-setting">
       <li class="simple-menu__item simple-menu__item--geo">
         <span class="simple-menu__icon simple-menu__icon--geo"></span>
         <span class="simple-menu__link">Минск</span>
       </li>
+      </div>
       </div>
       <li class="simple-menu__item">
         <a href="https://seller.wildberries.ru/" class="simple-menu__link" target="_blank">
@@ -42,8 +44,8 @@
 
 
 
-    <div class="header__wrap">
-      <div class="header__balance-block">
+    <div  class="header__wrap">
+      <div *ngIf="isAuthenticated" class="header__balance-block">
         <div class="header__cashback header__cashback--disabled"></div>
         <a href="/lk/mywallet/purchases" class="header__balance">0,00&nbsp;р.</a>
       </div>
@@ -133,29 +135,71 @@
 
 <!--      </div>-->
 
-      <form action="#" class="header__search">
-        <div class="header__search-container">
-            <label class="header__search-button"></label>
-          <input type="text" class="header__input" placeholder="Search product">
-        </div>
-      </form>
+      <div class="header__search">
+
+          <input type="text" class="header__input" placeholder="Найти на Wildberries">
+          <div class="header__search-button">
+<!--            <div class="header__search-wrap">-->
+
+<!--            </div>-->
+
+          </div>
+      </div>
+
+
+<!--      <div class="header__search">-->
+<!--        <div class="header__search-container">-->
+<!--          <input type="text" class="header__input" placeholder="Найти на Wildberries">-->
+<!--          <div class="header__search-button">-->
+<!--            <button class="search-btn">-->
+<!--              <img src="path-to-your-icon/magnifying-glass-icon.svg" alt="Search" class="search-icon">-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+
+
+
+
+
+
+
       <div class="header__menu">
 
-        <a  class="header__delivery">
-          <img src="../../../assets/images/delivery.png" alt="Logo: delivery" class="header__icon-menu">
+        <a *ngIf="isAuthenticated"  class="header__delivery">
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2222%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%20d%3D%22M1.296%204.535%209.297.179a1.471%201.471%200%200%201%201.406%200l8.001%204.356a.41.41%200%200%201-.003.724l-8.01%204.273c-.431.23-.951.23-1.383%200L1.298%205.26a.41.41%200%200%201-.002-.724ZM0%207.495c0-.31.335-.51.613-.363l7.574%204.005c.475.251.771.74.771%201.273v9.16a.417.417%200%200%201-.62.36L.744%2017.705A1.441%201.441%200%200%201%200%2016.447V7.495Zm11.655%2014.456a.417.417%200%200%201-.613-.364v-8.95c0-.522.284-1.004.744-1.26l7.593-4.224a.417.417%200%200%201%20.621.36v9.16c0%20.532-.297%201.022-.771%201.273l-7.574%204.005Z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E"
+               alt="Logo: delivery" class="header__icon-menu">
           <span class="header__address-name">Доставки</span>
         </a>
 
-      <a  class="header__geo">
-        <img src="../../../assets/images/geo.png" alt="Logo: geo" class="header__icon-menu">
-        <span class="header__address-name">Адреса</span>
-      </a>
+        <a *ngIf="isAuthenticated" class="header__geo">
+                 <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2222%22%20height%3D%2220%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%20d%3D%22M0%206.304C0%202.74%202.828%200%206.412%200%208.087%200%209.755.654%2011%201.76%2012.245.655%2013.913%200%2015.588%200%2019.172%200%2022%202.739%2022%206.304c0%202.217-1.408%204.488-3.308%206.677-1.93%202.222-4.52%204.529-7.167%206.823a.8.8%200%200%201-1.05%200C7.828%2017.51%205.238%2015.203%203.31%2012.98%201.408%2010.79%200%208.52%200%206.304Z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E"
+                       alt="Logo: favorite" class="header__icon-menu">
+                  <span class="header__address-name">Избранное</span>
+              </a>
 
 
-        <div class="header__dropdown">
-      <a [routerLink]="['/login']"  class="header__login">
-        <img src="../../../assets/images/login.png" [routerLink]="['/login']" alt="Logo: login" class="header__icon-menu">
-        <span class="header__address-name">Войти</span>
+      <a *ngIf="!isAuthenticated" class="header__geo">
+       <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2222%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%20d%3D%22M15.623%207.68c0%203.395-4.904%2010.991-6.865%2013.893a.954.954%200%200%201-1.593%200C5.205%2018.67.3%2011.075.3%207.68.3%203.439%203.73%200%207.962%200c4.23%200%207.661%203.439%207.661%207.68ZM11.5%207.597a3.5%203.5%200%201%201-7%200%203.5%203.5%200%200%201%207%200Z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E"
+             alt="Logo: geo" class="header__icon-menu geo">
+      <span class="header__address-name">Адреса</span>
+     </a>
+
+
+
+        <a [routerLink]="['/login']" *ngIf="!isAuthenticated" class="header__login">
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2222%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M12.25%2010.1c2.476%200%204.6-2.124%204.6-4.864C16.85%202.531%2014.714.5%2012.25.5c-2.464%200-4.612%202.078-4.6%204.76%200%202.716%202.124%204.84%204.6%204.84ZM12.25%2012.3c-5.82%200-9.192%203.497-10.569%206.515-.687%201.507.612%202.885%202.268%202.885H20.55c1.657%200%202.955-1.379%202.268-2.886-1.378-3.018-4.75-6.514-10.569-6.514Z%22%2F%3E%3C%2Fsvg%3E"
+               [routerLink]="['/login']" alt="Logo: login" class="header__icon-menu">
+          <span class="header__address-name">Войти</span>
+        </a>
+
+        <div *ngIf="isAuthenticated" class="header__dropdown">
+      <a   class="header__profile">
+        <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2222%22%20fill%3D%22none%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M12.25%2010.1c2.476%200%204.6-2.124%204.6-4.864C16.85%202.531%2014.714.5%2012.25.5c-2.464%200-4.612%202.078-4.6%204.76%200%202.716%202.124%204.84%204.6%204.84ZM12.25%2012.3c-5.82%200-9.192%203.497-10.569%206.515-.687%201.507.612%202.885%202.268%202.885H20.55c1.657%200%202.955-1.379%202.268-2.886-1.378-3.018-4.75-6.514-10.569-6.514Z%22%2F%3E%3C%2Fsvg%3E"
+              alt="Logo: login" class="header__icon-menu">
+        <span class="header__address-name">Профиль</span>
       </a>
 
         <div class="header__dropdown-content" >
@@ -167,7 +211,6 @@
               <img class="header__dropdown-bell" src="/assets/images/bell.png">
             </a>
           </div>
-          <hr>
           <div class="header__dropdown-main">
             <a class="header__dropdown-item" href="#">
               <img class="header__dropdown-icon" src="/assets/images/shop.png">
@@ -225,7 +268,8 @@
 
 
       <a  class="header__basket">
-        <img src="../../../assets/images/basket.png" alt="Logo: basket" class="header__icon-menu">
+        <img src="data:image/svg+xml,%3Csvg%20width%3D%2217%22%20height%3D%2216%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M2.925.488a.833.833%200%200%200-1.517.691l4.295%209.416v.001c.005.008.023.05.046.09a.9.9%200%200%200%20.979.446c.045-.01.089-.023.098-.026l6.22-1.853.105-.031c.44-.13.867-.256%201.201-.523.29-.232.517-.535.657-.88.16-.396.159-.842.158-1.3V4.105c0-.01%200-.06-.004-.11a.901.901%200%200%200-.488-.73.9.9%200%200%200-.447-.098H4.147L2.925.487ZM11.833%2012a1.333%201.333%200%200%200%200%202.667h.007a1.333%201.333%200%200%200%200-2.667h-.007ZM3.167%2013.334c0-.737.597-1.334%201.333-1.334h.007a1.333%201.333%200%200%201%200%202.667H4.5a1.333%201.333%200%200%201-1.333-1.333Z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E"
+             alt="Logo: basket" class="header__icon-menu">
         <span class="header__address-name">Корзина</span>
       </a>
       </div>

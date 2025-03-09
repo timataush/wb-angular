@@ -1,9 +1,7 @@
 <app-header></app-header>
+<app-load *ngIf="loadingService.isLoading$ | async"></app-load>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 
 
 
-
-<!--<app-forgot></app-forgot>-->
-<!--<app-login></app-login>-->

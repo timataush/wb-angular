@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Auth,User,onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, UserCredential, AuthError } from "@angular/fire/auth";
 import { Router } from "@angular/router";
 import { Userdata } from "../models/userdata";
+import {BehaviorSubject, Observable} from "rxjs";
+import {AngularFireAuth} from "@angular/fire/compat/auth";
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +11,11 @@ import { Userdata } from "../models/userdata";
 export class AuthService {
 
 
-  user: User | null = null;
 
+  private isAuthenticated = new BehaviorSubject<boolean>(false);
+  isAuthenticated$ = this.isAuthenticated.asObservable();
+
+  user: User | null = null;
 
 
   constructor(private auth: Auth, private router: Router) {
@@ -18,16 +23,22 @@ export class AuthService {
       this.user = user;
       if(user){
         localStorage.setItem('token', 'true');
+        this.isAuthenticated.next(true);
       }
       else{
         localStorage.removeItem('token');
+        this.isAuthenticated.next(false);
       }
     });
   }
 
-  isAuthenticated(): boolean {
-    return this.user === null || this.user === null;
+
+
+  isUserAuthenticated(): boolean {
+    return this.user! === null;
   }
+
+
 
 
   login(Userdata: Userdata): Promise<UserCredential> {

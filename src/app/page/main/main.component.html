@@ -94,28 +94,120 @@
 
 
 <div class="main__section">
-    <div class="main__content">
+    <div   class="main__content">
 
 
-  <!--    <div class="preloader">-->
-  <!--      <div class="loader"></div>-->
-  <!--    </div>-->
-  <!--  </div>-->
-  <!--  <div class="main__pagination">-->
-  <!--    <div class="main__btnpg">-->
-  <!--      <button class="btnpg main__prev"><img  src="img/left.png" alt="left"></button>-->
-  <!--      <ul class="main__ul">-->
-  <!--         <li class = "main__items" data-value="1">1</li>-->
+<!--/////////////////////////////////-->
+      <article *ngFor="let product of products" class="main__page-product">
 
-  <!--      </ul>-->
-  <!--      <button class="btnpg main__next"><img  src="img/right.png" alt="right"></button>-->
+        <div class="main__page-wrapper">
+          <a class="main__page-link" href="">
+            <div class="main__page-top">
+              <button class="main__page-heart"></button>
+              <div class="main__page-image">
+                <img [ngSrc]="product.image" class="main__page-img" alt="{{ product.name }}" fill>
+              </div>
+              <div class="main__page-bottom">
+                <p class="main__page-sale" *ngIf="product.sale">{{ product.sale }}%</p>
+                <p class="main__page-recommend"  *ngIf="product.recommend">Хорошая цена</p>
+                <p class="main__page-text" *ngIf="product.isSale">Распродажа</p>
+              </div>
+              <button class="main__page-fast">Быстрый просмотр</button>
+            </div>
+          </a>
 
-  <!--    </div>-->
-  <div class="container">
-    <h1>Добро пожаловать!</h1>
-    <p *ngIf="authService.user">Вы вошли как: {{ authService.user.email }}</p>
-<!--    <button (click)="logout()">Выйти</button>-->
-  </div>
+          <div class="main__page-wrapper-middle">
+            <div class="main__middle-price">
+              <span class="main__middle-price-wrap">
+                <ins class="ins">{{ product.price }}p.</ins>
+              </span>
+            </div>
+            <h2 class="main__middle-brand">
+              <span class="main__middle-description">{{ product.name }}</span>
+            </h2>
+
+
+            <div class="main__page-wrapper-bottom">
+              <p class="main__bottom-rating">
+                <span class="main__bottom-stars">
+                  <span class="main__bottom-img"></span>
+                  <span class="main__bottom-text">{{ product.rating }}</span>
+                </span>
+
+                <span class="main__bottom-count">
+                  <span class="main__bottom-dok"></span>
+                  <span class="main__bottom-number">{{ product.reviews }} оценок</span>
+                </span>
+              </p>
+
+              <p class="main__bottom-basket">
+                <a class="main__bottom-add" href="">
+                  <span class="main__bottom-troly"></span>
+                  <span class="main__bottom-date">{{ product.date }}</span>
+                </a>
+              </p>
+            </div>
+            </div>
+        </div>
+      </article>
+<!--//////////////////////////////////-->
+
+<!--      <article class="main__page-product">-->
+<!--        <div *ngFor="let product of products" class="main__page-wrapper">-->
+<!--          <a class="main__page-link" href="">-->
+<!--            <div class="main__page-top">-->
+<!--              <button class="main__page-heart"></button>-->
+<!--              <div class="main__page-image">-->
+<!--                <img [ngSrc]="product.image" class="main__page-img" [alt]="product.name" width="200" height="200">-->
+<!--              </div>-->
+<!--              <div class="main__page-bottom">-->
+<!--                <p class="main__page-sale">-9%</p>-->
+<!--                <p class="main__page-recommend">Хорошая цена</p>-->
+<!--                <p class="main__page-text">Распродажа</p>-->
+<!--              </div>-->
+<!--              <button class="main__page-fast">Быстрый просмотр</button>-->
+<!--            </div>-->
+<!--          </a>-->
+
+<!--          <div class="main__page-wrapper-middle">-->
+<!--            <div class="main__middle-price">-->
+<!--        <span class="main__middle-price-wrap">-->
+<!--          <ins class="ins">{{ product.price | currency }}p.</ins>-->
+<!--        </span>-->
+<!--            </div>-->
+<!--            <h2 class="main__middle-brand">-->
+<!--              <span class="main__middle-description">{{ product.name }}</span>-->
+<!--            </h2>-->
+
+<!--            <div class="main__page-wrapper-bottom">-->
+<!--              <p class="main__bottom-rating">-->
+<!--          <span class="main__bottom-stars">-->
+<!--            <span class="main__bottom-img"></span>-->
+<!--            <span class="main__bottom-text">5</span>-->
+<!--          </span>-->
+
+<!--                <span class="main__bottom-count">-->
+<!--            <span class="main__bottom-dok"></span>-->
+<!--            <span class="main__bottom-number">5 оценок</span>-->
+<!--          </span>-->
+<!--              </p>-->
+
+<!--              <p class="main__bottom-basket">-->
+<!--                <a class="main__bottom-add" href="">-->
+<!--                  <span class="main__bottom-troly"></span>-->
+<!--                  <span class="main__bottom-date">7 марта</span>-->
+<!--                </a>-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </article>-->
+
+<!--  <div class="container">-->
+<!--    <h1>Добро пожаловать!</h1>-->
+<!--    <p *ngIf="authService.user">Вы вошли как: {{ authService.user.email }}</p>-->
+<!--&lt;!&ndash;    <button (click)="logout()">Выйти</button>&ndash;&gt;-->
+<!--  </div>-->
     </div>
 
 </div>
