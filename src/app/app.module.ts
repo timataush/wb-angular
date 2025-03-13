@@ -47,7 +47,7 @@
 // export class AppModule {}
 //
 //
-
+//
 
 
 
@@ -65,16 +65,19 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 // import { environment } from './environment/environment';
 import { AppComponent } from './app.component';
 import {environment} from "./environment/environment";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig), // Инициализация Firebase
-    AngularFireDatabaseModule, // Модуль для работы с Realtime Database
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    HttpClientModule,
+
   ],
   providers: [],
-  bootstrap: [AppComponent], // Указываем, что AppComponent является корневым
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
 

@@ -110,6 +110,12 @@ export const routes: Routes = [
       import('./page/load/load.component').then((m) => m.LoadComponent),
     data: { preload: true },
   },
+  {
+    path: 'basket',
+    loadComponent: () =>
+      import('./page/basket/basket.component').then((m) => m.BasketComponent),
+    data: { preload: true },
+  },
 ];
 
 @NgModule({

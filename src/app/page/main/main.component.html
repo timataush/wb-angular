@@ -5,17 +5,14 @@
 
 
   <ul class="breadcrumbs">
-    <!-- Главная -->
     <li class="breadcrumbs__item breadcrumbs__item--active">
       <a href="/lk" class="breadcrumbs__link" data-alt-routes="/lk/details" data-main="true" data-lk-header-st-name="Main">Главная</a>
     </li>
 
-    <!-- Доставки -->
     <li class="breadcrumbs__item" data-attr="9">
       <a href="/lk/myorders/delivery" class="breadcrumbs__link" data-main="true" data-lk-header-wba="LK_DLV" data-lk-header-st-name="Delivery">Доставки</a>
     </li>
 
-    <!-- Покупки с подменю -->
     <li class="breadcrumbs__item breadcrumbs__item--has-submenu" data-attr="2">
       <a href="/lk/myorders/archive" class="breadcrumbs__link" data-main="true" data-lk-header-wba="LK_Header_Purchases" data-lk-header-st-name="Purchases">Покупки</a>
       <div class="breadcrumbs__submenu">
@@ -33,7 +30,6 @@
       </div>
     </li>
 
-    <!-- Избранное с подменю -->
     <li class="breadcrumbs__item breadcrumbs__item--has-submenu" data-attr="1">
       <a href="/lk/favorites" class="breadcrumbs__link" data-main="true" data-lk-header-wba="LK_Header_Favorites" data-lk-header-st-name="Favorites">Избранное</a>
       <div class="breadcrumbs__submenu">
@@ -48,12 +44,10 @@
       </div>
     </li>
 
-    <!-- Баланс -->
     <li class="breadcrumbs__item" data-attr="6" data-switch="showWallet">
       <a href="/lk/mywallet/purchases" class="breadcrumbs__link" data-main="true">Баланс</a>
     </li>
 
-    <!-- Отзывы и вопросы с подменю -->
     <li class="breadcrumbs__item breadcrumbs__item--has-submenu" data-attr="4">
       <a href="/lk/discussion/feedback" class="breadcrumbs__link" data-main="true" data-lk-header-wba="LK_Header_Feedback" data-lk-header-st-name="Reviews">Отзывы и вопросы</a>
       <div class="breadcrumbs__submenu">
@@ -71,12 +65,10 @@
       </div>
     </li>
 
-    <!-- Обращения -->
     <li class="breadcrumbs__item" data-attr="3">
       <a href="/lk/communications" class="breadcrumbs__link" data-main="true" data-lk-header-wba="LK_Header_Requests" data-lk-header-st-name="Applications">Обращения</a>
     </li>
 
-    <!-- Ещё разделы с подменю -->
     <li class="breadcrumbs__item breadcrumbs__item--has-submenu" data-attr="7">
       <a href="javascript:void(0);" class="breadcrumbs__link" data-main="true" data-lk-header-st-name="Other">Ещё разделы</a>
       <div class="breadcrumbs__submenu">
@@ -141,7 +133,7 @@
               </p>
 
               <p class="main__bottom-basket">
-                <a class="main__bottom-add" href="">
+                <a class="main__bottom-add" (click)="addToBasket(product)">
                   <span class="main__bottom-troly"></span>
                   <span class="main__bottom-date">{{ product.date }}</span>
                 </a>

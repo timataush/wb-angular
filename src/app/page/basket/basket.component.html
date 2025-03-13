@@ -1,0 +1,118 @@
+
+<section class ="main">
+  <div class="main__section">
+
+<!--  это для кнопок снизу перемотка вверх и потом сделать адаптив для телефона и планшета <div>-->
+    <ng-template #emptyBasket>
+      <div class="basket__page">
+        <div class="basket__page-wrap">
+          <div class="basket__page-icon">
+            <img class="basket__page-img" src="https://static-basket-01.wbbasket.ru/vol2/site/i/v3/empty/cart.webp">
+          </div>
+          <h1 class="basket__page-title">В коризине пока пусто</h1>
+          <p class="basket__page-text">Загляните на главную, чтобы выбрать товары или найдите нужное в поиске</p>
+          <a [routerLink]="['/main']" class="basket__page-btn" href="">Перейти на главную</a>
+        </div>
+      </div>
+    </ng-template>
+
+
+
+
+
+
+<!--page-->
+    <form *ngIf="basketProducts.length > 0; else emptyBasket" class="basket__in" action="">
+      <div class="basket__in-content">
+        <div class="basket__in-section">
+          <div class="basket__section-header">
+            <h1 class="basket__section-count">
+
+              <span class="basket__section-text">Корзина</span>
+              <span class="basket__section-total">{{ basketProducts.length }} товар(ов)</span>
+
+            </h1>
+          </div>
+          <div class="basket__section-list">
+            <div *ngFor="let products of basketProducts" class="basket__section-good">
+              <a class="basket__good-image" href="">
+                <div class="set">
+                  <img class="basket__good-img" src="https://basket-16.wbbasket.ru/vol2549/part254946/254946629/images/c246x328/1.webp" alt="">
+                </div>
+              </a>
+
+              <div class="basket__good-info">
+                <a class="basket__good-title" href="">
+                  <span class="basket__good-title-name">{{ products.name }}</span>
+                  <span class="basket__good-title-brand">{{ products.brand }}</span>
+
+                  <span class="basket__good-properties">
+                    <p class="basket__good-properties-color">
+                      <span class="basket__good-properties-item">орехи • 380 г</span>
+                    </p>
+                  </span>
+
+                  <span class="basket__good-variable">
+                    <p class="basket__good-store">
+                      <span class="basket__good-item">Завтра</span>
+                    </p>
+                    <p class="basket__good-store">
+                      <span class="basket__good-item">Только предоплата</span>
+                    </p>
+                  </span>
+                </a>
+
+                <div class="basket__btn">
+                  <div class="basket__btn-wrap">
+                    <button class="basket__btn-postpone">
+                      <span class="basket__btn-icon1"></span>
+                    </button>
+                    <button class="basket__btn-del" (click)="removeFromBasket(products.id)">
+                      <span class="basket__btn-icon2"></span>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="basket__count">
+              <div class="basket__count-wrap">
+                <div class="basket__count-number">
+                  <button class="basket__number-minus"></button>
+                  <input type="number" class="basket__number-value" value="1" >
+                  <button class="basket__number-plus">
+                  </button>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="basket__price-wrap">
+              <div class="basket__price-item">
+                <div class="basket__price-new">р.</div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+
+
+
+
+
+
+
+
+<!--    </div>-->
+
+  </div>
+</section>

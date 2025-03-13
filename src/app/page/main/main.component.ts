@@ -3,14 +3,12 @@ import {AuthService} from '../../services/auth.service';
 import {Router} from "@angular/router";
 import {NgIf, NgFor, NgForOf, NgOptimizedImage, CurrencyPipe} from "@angular/common";
 import {ProductService} from "../../services/product.service";
-// import {Product} from "../../app.component";
 
 
-
-
+import { BasketService } from '../../services/basket.service';
 import { HttpClient, HttpClientModule} from "@angular/common/http";
 
-//
+
 export class Product {
   constructor(
     public name: string,
@@ -35,7 +33,7 @@ export class Product {
     NgForOf,
     NgOptimizedImage,
     CurrencyPipe,
-    HttpClientModule
+    HttpClientModule,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
@@ -46,8 +44,9 @@ export class MainComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    // private productService: ProductService,
-    private http: HttpClient
+    private productService: ProductService,
+    private http: HttpClient,
+    private basketService: BasketService
   ) {}
 
   logout(){
@@ -59,10 +58,10 @@ export class MainComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.productService.getProducts().subscribe((data) => {
-    //   this.products = data;
-    //   console.log(this.products);
-    // });
+    this.productService.getProducts().subscribe((data) => {
+      this.products = data;
+      console.log(this.products);
+    });
 
       this.loadProducts();
     }
@@ -91,4 +90,7 @@ export class MainComponent implements OnInit {
   }
 
 
+  addToBasket(product: Product) {
+    this.basketService.addToBasket(product);
+  }
 }
