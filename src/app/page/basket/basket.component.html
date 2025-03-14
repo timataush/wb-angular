@@ -18,13 +18,15 @@
 
 
 
+<!--    *ngIf="basketProducts.length > 0; else emptyBasket"-->
 
 
-
-<!--page-->
+    <!--page-->
     <form *ngIf="basketProducts.length > 0; else emptyBasket" class="basket__in" action="">
-      <div class="basket__in-content">
-        <div class="basket__in-section">
+<!--    <form  class="basket__in" action="">-->
+
+    <div  class="basket__in-content">
+        <div  class="basket__in-section">
           <div class="basket__section-header">
             <h1 class="basket__section-count">
 
@@ -33,12 +35,17 @@
 
             </h1>
           </div>
-          <div class="basket__section-list">
-            <div *ngFor="let products of basketProducts" class="basket__section-good">
-              <a class="basket__good-image" href="">
-                <div class="set">
-                  <img class="basket__good-img" src="https://basket-16.wbbasket.ru/vol2549/part254946/254946629/images/c246x328/1.webp" alt="">
+          <div *ngFor="let products of basketProducts" class="basket__section-list">
+            <div  class="basket__section-good">
+<!--            <div class="basket__section-good">-->
+
+            <a class="basket__good-image" href="">
+              <div style="position: relative; width: 100px; height: 100px;">
+                <div style="position: absolute; width: 100%; height: 100%;" class="set">
+                  <img class="basket__good-img"
+                       [ngSrc]="products.image" alt="" fill>
                 </div>
+              </div>
               </a>
 
               <div class="basket__good-info">
@@ -67,7 +74,9 @@
                     <button class="basket__btn-postpone">
                       <span class="basket__btn-icon1"></span>
                     </button>
-                    <button class="basket__btn-del" (click)="removeFromBasket(products.id)">
+<!--                    <button class="basket__btn-del">-->
+                      <button class="basket__btn-del" (click)="removeFromBasket(products.id)">
+
                       <span class="basket__btn-icon2"></span>
                     </button>
                   </div>
@@ -91,7 +100,7 @@
 
             <div class="basket__price-wrap">
               <div class="basket__price-item">
-                <div class="basket__price-new">р.</div>
+                <div class="basket__price-new">{{ products.price }}р.</div>
               </div>
             </div>
 

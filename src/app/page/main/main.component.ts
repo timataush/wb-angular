@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {Router} from "@angular/router";
 import {NgIf, NgFor, NgForOf, NgOptimizedImage, CurrencyPipe} from "@angular/common";
-import {ProductService} from "../../services/product.service";
+// import {ProductService} from "../../services/product.service";
 
 
 import { BasketService } from '../../services/basket.service';
@@ -38,13 +38,15 @@ export class Product {
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
-export class MainComponent implements OnInit {
+export class MainComponent
+  implements OnInit
+{
 
   products: Product[] = [];
 
   constructor(
     public authService: AuthService,
-    private productService: ProductService,
+    // private productService: ProductService,
     private http: HttpClient,
     private basketService: BasketService
   ) {}
@@ -58,10 +60,10 @@ export class MainComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((data) => {
-      this.products = data;
-      console.log(this.products);
-    });
+    // this.productService.getProducts().subscribe((data) => {
+    //   this.products = data;
+    //   console.log(this.products);
+    // });
 
       this.loadProducts();
     }

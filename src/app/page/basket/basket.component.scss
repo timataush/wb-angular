@@ -212,7 +212,7 @@
       margin: 0 -6px;
       font-size: 0;
       position: relative;
-
+      padding-top: 24px;
     }
 
     &-good {
@@ -267,6 +267,7 @@
       border: 0;
       max-width: 100%;
       height: auto;
+
     }
 
     &-info {
@@ -349,11 +350,6 @@
       font-size: 16px;
       line-height: 22px;
       text-decoration: none;
-
-      &-name {
-
-      }
-
 
     }
   }
@@ -552,6 +548,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    position: relative;
   }
 
   @media (max-width: 1029px) {
@@ -601,4 +598,5 @@
       }
     }
   }
+
 
