@@ -2,6 +2,6 @@
 <app-load *ngIf="loadingService.isLoading$ | async"></app-load>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
-
+<app-bottom-menu *ngIf="isMobile"></app-bottom-menu>
 
 

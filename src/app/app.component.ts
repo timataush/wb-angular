@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {HeaderComponent} from "./page/header/header.component";
 import {ForgotPasswordComponent} from "./page/forgot/forgot.component";
 import {LoginComponent} from "./page/login/login.component";
 import {FooterComponent} from "./page/footer/footer.component";
-import {AsyncPipe, NgIf} from "@angular/common";
-
+import {AsyncPipe, NgIf,isPlatformBrowser} from "@angular/common";
 
 import { Router, Event, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { LoadingService } from './services/loading.service';
@@ -14,8 +13,7 @@ import {LoadComponent} from "./page/load/load.component";
 
 
 import { HttpClient, HttpClientModule} from "@angular/common/http";
-import { OnInit} from "@angular/core";
-
+import {BottomMenuComponent} from "./page/bottom-menu/bottom-menu.component";
 
 
 export class Product {
@@ -26,13 +24,16 @@ export class Product {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HttpClientModule, HeaderComponent, ForgotPasswordComponent, LoginComponent, FooterComponent, NgIf, AsyncPipe, LoadComponent],
+  imports: [RouterOutlet, HttpClientModule, HeaderComponent, ForgotPasswordComponent, LoginComponent, FooterComponent, NgIf, AsyncPipe, LoadComponent, BottomMenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router, public loadingService: LoadingService, private http: HttpClient) {
+  isMobile = false;
+  isBrowser: boolean;
+
+  constructor(private router: Router, public loadingService: LoadingService, private http: HttpClient,@Inject(PLATFORM_ID) private platformId: Object) {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         this.loadingService.show();
@@ -53,6 +54,11 @@ export class AppComponent implements OnInit {
     //   })
 
 
+
+    this.isBrowser = isPlatformBrowser(this.platformId);
+
+
+
   }
   product: any;
     ngOnInit(){
@@ -60,8 +66,26 @@ export class AppComponent implements OnInit {
         .subscribe({next:(data:any) => {
         console.log('Data from Firebase:', data);
         this.product = new Product(data.name, data.price)}});
+
+
+      //проверка браузера
+      if (this.isBrowser) {
+        this.checkScreenWidth();
+        window.addEventListener('resize', () => this.checkScreenWidth());
+      }
+
     }
 
+  checkScreenWidth(): void {
+    this.isMobile = window.innerWidth <= 1024;
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    if (this.isBrowser) {
+      this.checkScreenWidth();
+    }
+  }
 
 
 
