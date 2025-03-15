@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {NgIf, NgOptimizedImage} from "@angular/common";
@@ -18,11 +18,11 @@ import {RouterLink, RouterOutlet} from "@angular/router";
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
 isAuthenticated = false;
 
-constructor(private authService: AuthService) {}
+constructor(private authService: AuthService)  {}
 
   ngOnInit() {
   this.authService.isAuthenticated$.subscribe((isAuth) => {

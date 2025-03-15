@@ -6,7 +6,6 @@
   position: relative;
   background-color: rgba(211, 212, 221, .24);
   &__container{
-    //padding: 0 16px;
     max-width: 1504px;
     margin: 0 auto;
     padding: 0 32px;
@@ -14,7 +13,6 @@
   &__nav{
     margin: 0 0 20px;
     display: flex;
-    margin: 0 0 20px;
   }
   &__services{
     justify-content: space-between;
@@ -27,12 +25,10 @@
 
 
   &__buyers{
-    padding: 0;
     width: calc(29% - 16px);
-    border-bottom: 1px solid rgba(211, 212, 221, .5);
+    //border-bottom: 1px solid rgba(211, 212, 221, .5);
     border: none;
   }
-  //нужно сделать шрифт
   &__title{
     cursor: default ;
     justify-content: space-between;
@@ -40,12 +36,16 @@
     display: flex;
     margin-bottom: 10px;
 
-    font-variation-settings: "wght" 450;
-    color: #030303;
-    text-rendering: geometricPrecision;
     font-family: Hauss, Segoe UI, -apple-system, Roboto, Helvetica Neue, Noto Sans, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-    font-size: 16px;
-    font-weight: 400;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    color: #242424;
+    font-variation-settings: "wght" 650;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
   }
   &__dropdown{
     margin: 0;
@@ -154,5 +154,204 @@
   &:hover {
     color: #af1ad0;
 
+  }
+}
+
+
+
+
+@media (max-width: 1029px) {
+.footer{
+  padding: 40px 0 72px;
+  &__buyers{
+    //margin: 0 0 0 10px;
+  }
+  &__container{
+    padding: 0 16px;
+  }
+  &__nav{
+    //margin: 0 -8px 20px;
+    display: flex;
+  }
+  &__services{
+    width: calc(100% - 16px);
+    display: flex;
+  }
+  &__buyers{
+    padding: 0;
+  }
+  &__title{
+    cursor: default;
+    margin: 0 0 8px;
+  }
+  &__dropdown-item{
+    margin: 0 0 8px;
+  }
+  &__sellers{
+    width: calc(26% - 16px);
+    margin: 0 8px;
+  }
+  &__ourproject{
+    padding: 0;
+  }
+  &__company{
+    padding: 0;
+  }
+}
+}
+
+
+@media (max-width: 1024px) {
+  .footer {
+    padding: 40px 0 72px;
+
+    &__buyers,
+    &__sellers,
+    &__ourproject,
+    &__company {
+      width: 100%;
+      margin: 0 0 20px;
+      padding: 0;
+      border: none;
+    }
+
+    &__wrap {
+      padding: 13px 0;
+      border-top: 1px solid rgba(211, 212, 221, 0.5);
+      border-bottom: 1px solid rgba(211, 212, 221, 0.5);
+      margin: 1px 0 0 0;
+    }
+
+    &__header-wrap {
+      cursor: pointer;
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+    }
+
+    &__title {
+      margin-bottom: 4px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    &__button-open {
+      background-color: transparent;
+      border: none;
+      flex-shrink: 0;
+      width: 28px;
+      height: 20px;
+      margin-left: 30px;
+      font-size: 0;
+      position: relative;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    &__button-open:before {
+      content: "";
+      background: url(data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%228%22%20viewBox%3D%220%200%2012%208%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M6.66989%207.51224C6.29992%207.89566%205.70008%207.89566%205.33011%207.51224L0.277477%202.27587C-0.0924931%201.89245%20-0.0924931%201.2708%200.277477%200.887372C0.647447%200.503949%201.24729%200.503949%201.61726%200.887372L6%205.42949L10.3827%200.887372C10.7527%200.503949%2011.3526%200.503949%2011.7225%200.887372C12.0925%201.2708%2012.0925%201.89245%2011.7225%202.27587L6.66989%207.51224Z%22%20fill%3D%22%23A9A8B0%22%2F%3E%0A%3C%2Fsvg%3E%0A) 50% no-repeat;
+      width: 16px;
+      height: 10px;
+      transition: transform 0.3s;
+      display: block;
+      position: absolute;
+      top: 5px;
+      right: 0;
+    }
+
+    &__dropdown {
+      //display: none;
+      margin-top: 10px;
+      transition: opacity 0.3s ease, max-height 0.3s ease;
+
+    }
+
+    &__dropdown-item {
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: #868695;
+
+      &:hover {
+        color: #af1ad0;
+      }
+    }
+
+    &__services {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &__qr {
+      display: none;
+    }
+
+    &__info {
+      flex-direction: column;
+
+      &-main {
+        margin-bottom: 32px;
+        width: 100%;
+      }
+
+      &-side {
+        margin-left: 0px;
+      }
+    }
+
+    &__social-icon {
+      margin-top: 20px;
+    }
+
+    &__list{
+      flex-wrap: wrap;
+      gap: 8px;
+      display: flex
+
+    }
+    &__platform{
+      border-radius: 8px;
+      width: calc(50% - 8px);
+      max-width: 116px;
+    }
+
+    &__appstore,
+    &__rustore,
+    &__gallery,
+    &__googleplay{
+      width: 100%;
+      height: 36px;
+      padding: 0;
+      font-size: 0;
+      line-height: 0;
+      display: block;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      color: #242424;
+      vertical-align: middle;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    &__image{
+      -webkit-user-drag: none;
+      border: 0;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+
+
+@media (min-width: 1024px) {
+  .footer__list,
+  .footer__button-open {
+    display: none;
   }
 }

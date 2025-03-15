@@ -3,42 +3,58 @@
   <div class="footer__container">
     <div class="footer__nav">
       <div class="footer__services">
-        <section class="footer__buyers">
-          <div class="footer__title">Покупателям</div>
-          <ul class="footer__dropdown">
+        <section class="footer__buyers footer__wrap">
+          <div class="footer__header-wrap">
+          <h2 class="footer__title">Покупателям</h2>
+            <button (click)="toggleDropdown('buyers')" class="footer__button-open"></button>
+
+            <ul  *ngIf="dropdownState['buyers']" class="footer__dropdown">
             <li class="footer__dropdown-item" datatype="questions">Вопросы и ответы</li>
             <li class="footer__dropdown-item" datatype="legal-information">Юридическая информация</li>
           </ul>
+          </div>
         </section>
 
-        <div class="footer__sellers">
-          <div class="footer__title">Продавцам и партнёрам</div>
-          <ul class="footer__dropdown">
+        <section class="footer__sellers footer__wrap">
+          <div class="footer__header-wrap">
+          <h2 class="footer__title">Продавцам и партнёрам</h2>
+            <button (click)="toggleDropdown('sellers')" class="footer__button-open"></button>
+
+            <ul  *ngIf="dropdownState['sellers']" class="footer__dropdown">
             <li class="footer__dropdown-item" datatype="sell-goods">Продавать товары</li>
             <li class="footer__dropdown-item" datatype="open-point">Открыть пункт выдачи</li>
             <li class="footer__dropdown-item" datatype="offer-room">Предложить помещение</li>
             <li class="footer__dropdown-item" datatype="oeliver-goods">Развозить грузы</li>
             <li class="footer__dropdown-item" datatype="oeliver-orders">Доставлять заказы</li>
           </ul>
-        </div>
+          </div>
+        </section>
 
-        <section class="footer__ourproject">
-          <div class="footer__title">Наши проекты</div>
-          <ul class="footer__dropdown">
+        <section class="footer__ourproject footer__wrap">
+          <div class="footer__header-wrap">
+          <h2 class="footer__title">Наши проекты</h2>
+            <button (click)="toggleDropdown('projects')" class="footer__button-open"></button>
+
+            <ul  *ngIf="dropdownState['projects']" class="footer__dropdown">
             <li class="footer__dropdown-item" datatype="guru">WB Guru</li>
             <li class="footer__dropdown-item" datatype="Stream">WB Stream</li>
           </ul>
+          </div>
         </section>
 
-        <section class="footer__company">
-          <div class="footer__title">Компания</div>
-          <ul class="footer__dropdown">
+        <section class="footer__company footer__wrap">
+          <div class="footer__header-wrap">
+          <h2 class="footer__title">Компания</h2>
+            <button (click)="toggleDropdown('company')" class="footer__button-open"></button>
+
+          <ul *ngIf="dropdownState['company']" class="footer__dropdown">
             <li class="footer__dropdown-item" datatype="about-us">О нас</li>
             <li class="footer__dropdown-item" datatype="press-service">Пресс-служба</li>
             <li class="footer__dropdown-item" datatype="contacts">Контакты</li>
             <li class="footer__dropdown-item" datatype="vacancies">Вакансии</li>
             <li class="footer__dropdown-item" datatype="report-fraud">Сообщить о мошенничестве</li>
           </ul>
+          </div>
         </section>
       </div>
       <div class="footer__qr">
@@ -52,6 +68,61 @@
 
 
     </div>
+
+
+
+
+    <ul class="footer__list">
+      <li class="footer__platform appstore" data-wba-footer-name="AppStore">
+        <a class="footer__appstore" rel="nofollow noopener" target="_blank" href="https://apps.apple.com/ru/app/wildberries/id597880187">
+          <img
+            class="footer__image"
+            src="https://static-basket-01.wbbasket.ru/vol2/site/i/v3/footer/download/app-store.webp"
+            data-src-pb="https://static-basket-01.wbbasket.ru/vol2/site/i/v3/footer/download/app-store.webp"
+            loading="lazy"
+            alt="AppStore"
+          />
+        </a>
+      </li>
+      <li class="footer__platform google" data-wba-footer-name="GooglePlay">
+        <a class="footer__googleplay" rel="nofollow noopener" target="_blank" href="https://play.google.com/store/apps/details?id=com.wildberries.ru">
+          <img
+            class="footer__image"
+            src="https://static-basket-01.wbbasket.ru/vol2/site/i/v3/footer/download/google-play.webp"
+            data-src-pb="https://static-basket-01.wbbasket.ru/vol2/site/i/v3/footer/download/google-play.webp"
+            loading="lazy"
+            alt="Google Play"
+          />
+        </a>
+      </li>
+      <li class="footer__platform gallery" data-wba-footer-name="AppGallery">
+        <a class="footer__gallery" rel="nofollow noopener" target="_blank" href="https://appgallery8.huawei.com/#/app/C101183325">
+          <img
+            class="footer__image"
+            src="https://static-basket-01.wbbasket.ru/vol2/site/i/v3/footer/download/app-gallery.webp"
+            data-src-pb="https://static-basket-01.wbbasket.ru/vol2/site/i/v3/footer/download/app-gallery.webp"
+            loading="lazy"
+            alt="AppGallery"
+          />
+        </a>
+      </li>
+      <li class="footer__platform rustore" >
+        <a class="footer__rustore" rel="nofollow noopener" target="_blank" href="https://apps.rustore.ru/app/com.wildberries.ru">
+          <img
+            class="footer__image"
+            src="https://static-basket-01.wbbasket.ru/vol2/site/i/v3/footer/download/rustore.webp"
+            data-src-pb="https://static-basket-01.wbbasket.ru/vol2/site/i/v3/footer/download/rustore.webp"
+            loading="lazy"
+            alt="RuStore"
+          />
+        </a>
+      </li>
+    </ul>
+
+
+
+
+
     <div class="footer__info">
       <div class="footer__info-main">
         <span>ООО «ИМВБРБ», г. Минск, ул. Грушевская 21, помещение 217. УНП 193630204 (свидетельство о государственной регистрации юридического лица выдано Минским горисполкомом от 06.06.2022 г. № 0198794). Дата включения сведений об интернет-магазине в Торговый реестр Республики Беларусь 01.07.2022. Телефон для связи: +375 17 388 60 00. Режим работы: круглосуточно. Лицо, уполномоченное продавцом рассматривать обращения покупателей о нарушении их прав, предусмотренных законодательством о защите прав потребителей — Добриян Ольга Викторовна, тел. +375 17 388 60 22. +375 17 263 97 69, +375 17 258 30 82 — отдел торговли и услуг администрации Московского района г. Минска. +375 17 368 80 49 — уполномоченный по защите прав потребителей. По оформлению рекламации или возврата, свяжитесь с нами по электронной почте: sales:wildberries.by. Книга замечаний и предложений находится по адресу: г. Минск, ул. Скрыганова, д. 6а, помещение 8, офис 35.</span>
